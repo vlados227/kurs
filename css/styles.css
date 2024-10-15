@@ -58,7 +58,9 @@ nav a {
 .categories ul {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 0;
+  overflow: visible;
   list-style: none;
 }
 
@@ -70,7 +72,7 @@ nav a {
 
 .tours {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 20px 0;
 }
 
