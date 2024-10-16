@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <?php
+    session_start();
+    if(!empty($_SESSION['auth'])){
+    }
+    ?>
 </head>
 <body>
     <? include 'elements/header.php' ?>
@@ -15,7 +20,7 @@
     <main>
         <section class="intro">
             <h1>Экскурсии по Самаре</h1>
-            <p>19 экскурсий, цены на прогулки от 350 ₽. Смотрите расписание на октябрь-ноябрь 2024 года, выбирайте маршрут по Самаре и бронируйте билеты онлайн на Sputnik8.</p>
+            <!-- <p>19 экскурсий, цены на прогулки от 350 ₽. Смотрите расписание на октябрь-ноябрь 2024 года, выбирайте маршрут по Самаре и бронируйте билеты онлайн на Sputnik8.</p> -->
         </section>
 
         <section class="filters">
@@ -67,7 +72,7 @@
     </main>
 
     <footer>
-        <p>© 2024 Sputnik8</p>
+        <p>© 2024 Raketa</p>
     </footer>
 </body>
 </html>

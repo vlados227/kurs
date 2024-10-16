@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 16 2024 г., 02:28
+-- Время создания: Окт 16 2024 г., 14:55
 -- Версия сервера: 8.0.30
--- Версия PHP: 7.2.34
+-- Версия PHP: 8.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `role` (
   `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -49,10 +49,10 @@ INSERT INTO `role` (`id`, `name`) VALUES
 CREATE TABLE `statement` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
-  `number_auto` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `exhibition` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` set('новое','подтверждено','отклонено') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'новое'
+  `status` set('новое','подтверждено','отклонено') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'новое'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -63,9 +63,9 @@ CREATE TABLE `statement` (
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `login` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `fio` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `login` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role_id` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -73,9 +73,10 @@ CREATE TABLE `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `password`, `fio`, `role_id`) VALUES
-(1, 'леха223', '7cec85c75537840dad40251576e5b757', 'Алексей Подвальгый', 1),
-(2, 'numberone', '7272462fb78e5be298e6c87cee6b721e', 'Саша Пупкин', 1);
+INSERT INTO `users` (`id`, `login`, `password`, `email`, `role_id`) VALUES
+(4, 'alex', 'e10adc3949ba59abbe56e057f20f883e', 'user1_00@yandex.ru', 1),
+(5, 'alex2', '827ccb0eea8a706c4c34a16891f84e7b', '1234@gmail.com', 1),
+(6, 'alex24', 'b59c67bf196a4758191e42f76670ceba', '32fgnbfb@gmail.com', 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -121,7 +122,7 @@ ALTER TABLE `statement`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
