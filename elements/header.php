@@ -12,7 +12,7 @@
         </div>
         <nav>
             <a href="login.php">Вход</a>
-            <a href=""><? echo $_SESSION['login'] ?> </a>
+            <a href="">Профиль: <? echo $_SESSION['login'] ?> </a>
             <a href="statements.php">Мои Экскурсии</a>
             <a href="register.php">Регистрация</a>
         </nav>

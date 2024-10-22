@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once("db.php");
-
 if (empty($_POST['login']) && empty($_POST['password']) && empty($_POST['email'])) {
     echo "заполните все поля";
 } else {
@@ -15,7 +14,7 @@ if (empty($_POST['login']) && empty($_POST['password']) && empty($_POST['email']
         $result = mysqli_query($link, "INSERT INTO `users` SET `login` = '$login', `password` = '$password', `email` = '$email'");
         $_SESSION['auth'] = true;
     }else{
-        echo "ошибка: логин уже занят";
+        echo '<h3 class="error">ошибка: логин уже занят</h3>';
     }
 
     
@@ -45,7 +44,7 @@ if (empty($_POST['login']) && empty($_POST['password']) && empty($_POST['email']
             <h1>Регистрация</h1>
             <form action="" method="POST" class="auth-form">
                 <div class="form-group">
-                    <label for="name">Логин</label>
+                    <label for="login">Логин</label>
                     <input type="text" id="login" name="login" required>
                 </div>
                 <div class="form-group">
