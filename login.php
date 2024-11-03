@@ -11,8 +11,18 @@ if (!empty($_POST['login']) && !empty($_POST['password'])) {
     if (!empty($user)) {
         $_SESSION['auth'] = true;
         $_SESSION['login'] = $user['login'];
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['role_id'] = $user['role_id'];
+        if ($_SESSION['role_id'] == '1') {
+            header("Location: index.php");
+        }elseif ($_SESSION['role_id'] == '2') {
+            header('Location: admin.php');
+        }else{
+            echo "Неверный логин или пароль";
+        }
 
-        header('Location: index.php');
+
+        #header('Location: index.php');
     } else {
         echo "<p class='error'>Неверный логин или пароль</p>";
     }

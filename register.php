@@ -16,8 +16,6 @@ if (empty($_POST['login']) && empty($_POST['password']) && empty($_POST['email']
     }else{
         echo '<h3 class="error">ошибка: логин уже занят</h3>';
     }
-
-    
 }
 ?>
 
@@ -60,10 +58,7 @@ if (empty($_POST['login']) && empty($_POST['password']) && empty($_POST['email']
             </form>
         </section>
     </main>
-
-    <footer>
-        <p>© 2024 Raketa</p>
-    </footer>
+    <? include 'elements/footer.php' ?>
 </body>
 
 </html>

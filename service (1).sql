@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 16 2024 г., 14:55
+-- Время создания: Окт 23 2024 г., 15:33
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -43,17 +43,25 @@ INSERT INTO `role` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `statement`
+-- Структура таблицы `statements`
 --
 
-CREATE TABLE `statement` (
+CREATE TABLE `statements` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
-  `exhibition` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `date` datetime NOT NULL,
+  `participants` int NOT NULL,
   `status` set('новое','подтверждено','отклонено') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'новое'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `statements`
+--
+
+INSERT INTO `statements` (`id`, `user_id`, `name`, `date`, `participants`, `status`) VALUES
+(1, 5, 'Истории старой Самары: индивидуальная экскурсия', '2024-10-23 16:01:00', 2, 'новое'),
+(2, 5, 'Обзорная пешеходная экскурсия по Самаре', '2024-10-23 22:23:00', 5, 'новое');
 
 -- --------------------------------------------------------
 
@@ -75,8 +83,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `login`, `password`, `email`, `role_id`) VALUES
 (4, 'alex', 'e10adc3949ba59abbe56e057f20f883e', 'user1_00@yandex.ru', 1),
-(5, 'alex2', '827ccb0eea8a706c4c34a16891f84e7b', '1234@gmail.com', 1),
-(6, 'alex24', 'b59c67bf196a4758191e42f76670ceba', '32fgnbfb@gmail.com', 1);
+(5, 'alex2', '81dc9bdb52d04dc20036dbd8313ed055', '1234@gmail.com', 1),
+(6, 'alex24', 'b59c67bf196a4758191e42f76670ceba', '32fgnbfb@gmail.com', 1),
+(8, 'copp', '5f4dcc3b5aa765d61d8327deb882cf99', 'adminweb@yandex.ru', 2);
 
 --
 -- Индексы сохранённых таблиц
@@ -89,9 +98,9 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `statement`
+-- Индексы таблицы `statements`
 --
-ALTER TABLE `statement`
+ALTER TABLE `statements`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
@@ -113,26 +122,26 @@ ALTER TABLE `role`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT для таблицы `statement`
+-- AUTO_INCREMENT для таблицы `statements`
 --
-ALTER TABLE `statement`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `statements`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Ограничения внешнего ключа таблицы `statement`
+-- Ограничения внешнего ключа таблицы `statements`
 --
-ALTER TABLE `statement`
-  ADD CONSTRAINT `statement_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `statements`
+  ADD CONSTRAINT `statements_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `users`

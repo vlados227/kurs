@@ -62,7 +62,7 @@
                 <p>3 ч.</p>
             </div>
             <div class="tour-card">
-                <img src="images/quot;.webp" alt="Обзорная пешеходная экскурсия">
+                <a href="statements.php"><img src="images/quot;.webp" alt="Обзорная пешеходная экскурсия"></a>
                 <h2>Обзорная пешеходная экскурсия по Самаре</h2>
                 <p>Отличная возможность увидеть главные достопримечательности...</p>
                 <p class="price">4 500 ₽</p>
@@ -71,8 +71,6 @@
         </section>
     </main>
 
-    <footer>
-        <p>© 2024 Raketa</p>
-    </footer>
+    <? include 'elements/footer.php' ?>
 </body>
 </html>
