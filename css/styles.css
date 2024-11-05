@@ -384,4 +384,9 @@ select {
   .statement {
     width: 90%;
   }
+  .categories ul {
+    flex-direction: row;
+    float: none;
+    overflow: scroll;
+  }
 }
