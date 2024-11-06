@@ -50,9 +50,9 @@
         </div>
         <div class="tour-card" data-category="Автобусные" data-price="5500" data-group="group">
             <img src="images/tour2.webp" alt="Расширенная экскурсия">
-            <h2>Расширенная экскурсия по Самаре на транспорте туриста</h2>
+            <h2>Расширенная экскурсия по Самаре на автобусе</h2>
             <p>Индивидуальная автомобильная и пешеходная экскурсия...</p>
-            <p class="price">5 500 ₽</p>
+            <p class="price">5 900 ₽</p>
             <p>3 ч.</p>
         </div>
         <div class="tour-card" data-category="Пешеходные" data-price="4500" data-group="group">
@@ -123,13 +123,6 @@
             <h2>Автобусная экскурсия по историческим местам</h2>
             <p>Исследуйте исторические достопримечательности с комфортом...</p>
             <p class="price">8 000 ₽</p>
-            <p>3 ч.</p>
-        </div>
-        <div class="tour-card" data-category="Необычные" data-price="6500" data-group="individual">
-            <img src="images/tour13.webp" alt="Необычная экскурсия">
-            <h2>Экскурсия по мистическим местам Самары</h2>
-            <p>Откройте для себя мистические истории и легенды...</p>
-            <p class="price">6 500 ₽</p>
             <p>3 ч.</p>
         </div>
     </section>

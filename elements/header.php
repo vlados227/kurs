@@ -73,11 +73,10 @@
             align-items: center;
             gap: 10px;
             position: absolute;
-            top: 60px; /* Adjust to your header height */
+            top: 74px; /* Adjust to your header height */
             right: 0;
-            background-color: #fff;
+            background-color: #f8f8f8;
             width: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 15px;
             box-sizing: content-box;
         }
