@@ -35,7 +35,7 @@ if (empty($_SESSION["auth"])) {
             priceDisplay.textContent = `Итого: ${price} ₽`;
         }
 
-        document.addEventListener("DOMContentLoaded", updateфPrice);
+        document.addEventListener("DOMContentLoaded", updatePrice);
     </script>
 </head>
 <body>

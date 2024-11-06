@@ -35,7 +35,6 @@
 </script>
 
 <style>
-    /* Basic styling */
     .logo-search {
         display: flex;
         align-items: center;
@@ -46,22 +45,18 @@
         margin-left: 10px;
     }
 
-    /* Hide the burger icon by default */
     .burger-menu {
         display: none;
         font-size: 24px;
         cursor: pointer;
     }
 
-    /* Hide navigation links on smaller screens */
     .nav-links {
         display: flex;
         gap: 15px;
     }
 
-    /* For screens 768px or smaller */
     @media (max-width: 768px) {
-        /* Show the burger icon */
         .burger-menu {
             display: block;
         }

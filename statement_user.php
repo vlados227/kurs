@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <? include 'elements/header.php' ?>
+    <? include 'elements/header.php'; ?>
 
     <main>
         <h2>Заявления пользователя</h2>
@@ -26,8 +26,9 @@
                 echo " <tr>
                     <td>$row[name]</td>
                     <td>$row[date]</td>
-                    <td>$row[participants]</td>
-                    <td>$row[status]</td>
+                    <td>Кол-во участников: $row[participants]</td>
+                    <td>Статус: $row[status]</td>
+                    <td>Цена:  + $row[price]</td>
                     </tr><br>
                 ";
             }

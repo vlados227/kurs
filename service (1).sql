@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 23 2024 г., 15:33
+-- Время создания: Ноя 06 2024 г., 13:24
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -52,16 +52,16 @@ CREATE TABLE `statements` (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date` datetime NOT NULL,
   `participants` int NOT NULL,
-  `status` set('новое','подтверждено','отклонено') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'новое'
+  `status` set('новое','подтверждено','отклонено') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'новое',
+  `price` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `statements`
 --
 
-INSERT INTO `statements` (`id`, `user_id`, `name`, `date`, `participants`, `status`) VALUES
-(1, 5, 'Истории старой Самары: индивидуальная экскурсия', '2024-10-23 16:01:00', 2, 'новое'),
-(2, 5, 'Обзорная пешеходная экскурсия по Самаре', '2024-10-23 22:23:00', 5, 'новое');
+INSERT INTO `statements` (`id`, `user_id`, `name`, `date`, `participants`, `status`, `price`) VALUES
+(3, 9, 'Истории старой Самары: индивидуальная экскурсия', '2024-11-06 14:11:00', 1, 'новое', 3000);
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,8 @@ INSERT INTO `users` (`id`, `login`, `password`, `email`, `role_id`) VALUES
 (4, 'alex', 'e10adc3949ba59abbe56e057f20f883e', 'user1_00@yandex.ru', 1),
 (5, 'alex2', '81dc9bdb52d04dc20036dbd8313ed055', '1234@gmail.com', 1),
 (6, 'alex24', 'b59c67bf196a4758191e42f76670ceba', '32fgnbfb@gmail.com', 1),
-(8, 'copp', '5f4dcc3b5aa765d61d8327deb882cf99', 'adminweb@yandex.ru', 2);
+(8, 'copp', '5f4dcc3b5aa765d61d8327deb882cf99', 'adminweb@yandex.ru', 2),
+(9, 'dude', '827ccb0eea8a706c4c34a16891f84e7b', 'user1111_00@yandex.ru', 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -125,13 +126,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT для таблицы `statements`
 --
 ALTER TABLE `statements`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
