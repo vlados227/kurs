@@ -291,6 +291,7 @@ select {
   header {
     flex-direction: column;
     padding: 10px;
+    align-items: stretch;
   }
 
   .logo {
@@ -314,6 +315,14 @@ select {
     margin: 15px 0;
   }
 
+  .search-bar {
+    display: none;
+  }
+
+  .filters {
+    overflow: scroll;
+  }
+
   .filters button {
     padding: 8px 15px;
     margin: 0 5px;
@@ -334,6 +343,7 @@ select {
 
   /* Тур-карточки */
   .tours {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
