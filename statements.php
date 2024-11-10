@@ -43,7 +43,7 @@ if (empty($_SESSION["auth"])) {
             priceField.value = price * qty.value;
             priceDisplay.textContent = `Итого: ${price} ₽`;
         }
-
+        
         document.addEventListener("DOMContentLoaded", updatePrice);
     </script>
 </head>

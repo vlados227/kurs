@@ -17,23 +17,39 @@
     <? include 'elements/header.php'; ?>
 
     <main>
-        <h2>Заявления пользователя</h2>
-        <div class="results">
-            <?php
-            include_once("db.php");
-            $result = mysqli_query($link, "SELECT * FROM statements WHERE user_id = '$_SESSION[id]'");
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo " <tr>
+    <h2>Заявления пользователя</h2>
+    <div class="results">
+        <?php
+        include_once("db.php");
+        $result = mysqli_query($link, "SELECT * FROM statements WHERE user_id = '$_SESSION[id]'");
+
+        // Отображаем каждую заявку с формой для обновления статуса
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "
+            <form method='post' action='update_status.php'>
+                <tr>
                     <td>$row[name]</td>
                     <td>$row[date]</td>
                     <td>Кол-во участников: $row[participants]</td>
-                    <td>Статус: $row[status]</td>
-                    <td>Цена:  + $row[price]</td>
-                    </tr><br>
-                ";
-            }
-            ?>
-        </div>
-    </main>
+                    <td>Статус: 
+                        <select name='status'>
+                            <option value='новое' " . ($row['status'] == 'новое' ? 'selected' : '') . ">новое</option>
+                            <option value='подтверждено' " . ($row['status'] == 'подтверждено' ? 'selected' : '') . ">подтверждено</option>
+                            <option value='отклонено' " . ($row['status'] == 'отклонено' ? 'selected' : '') . ">отклонено</option>
+                        </select>
+                    </td>
+                    <td>Цена: $row[price]</td>
+                    <td>
+                        <input type='hidden' name='statement_id' value='$row[id]'>
+                        <button type='submit'>Обновить статус</button>
+                    </td>
+                </tr><br>
+            </form>
+            ";
+        }
+        ?>
+    </div>
+</main>
+
     <? include 'elements/footer.php' ?>
 </body>
