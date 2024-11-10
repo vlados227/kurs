@@ -21,17 +21,26 @@ if (empty($_SESSION["auth"])) {
             const tourSelect = document.getElementById("name");
             const priceField = document.getElementById("price");
             const priceDisplay = document.querySelector(".price");
+            const qty = document.getElementById("participants");
+
 
             let prices = {
                 "Истории старой Самары: индивидуальная экскурсия": 3000,
-                "Расширенная экскурсия по Самаре на транспорте туриста": 5000,
-                "Обзорная пешеходная экскурсия по Самаре": 2000
+                "Расширенная экскурсия по Самаре на автобусе": 5500,
+                "Обзорная пешеходная экскурсия по Самаре": 2000,
+                "Теплоходная экскурсия по Волге": 6000,
+                "Новогодняя экскурсия по Самаре": 7000,
+                "Обзорная экскурсия по историческим местам Самары": 1500,
+                "Индивидуальная экскурсия по музеям Самары": 6000,
+                "Необычная экскурсия по старым дворам Самары": 2000,
+                "Автобусная экскурсия по историческим местам": 6000
             };
 
             const selectedTour = tourSelect.value;
             const price = prices[selectedTour];
-
-            priceField.value = price;
+            
+            let visitors = qty.value;
+            priceField.value = price * qty.value;
             priceDisplay.textContent = `Итого: ${price} ₽`;
         }
 

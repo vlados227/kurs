@@ -22,11 +22,13 @@
         $get_username = mysqli_query($link, "SELECT `login` FROM `users` WHERE `id` = '$_SESSION[login]'");
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<div class='statement'>
+            <p><b>Номер заявки: $row[id]</b></p>
             <p><b>пользователь: $row[user_id]</b></p>
             <p><b>Название экскурсии: </b>$row[name]</p>
             <p><b>Дата проведения: </b>$row[date]</p>
             <p><b>Количество участников: </b>$row[participants]</p>
             <p><b>Статус заявки: </b>$row[status]</p>
+            <button>Подтвердить</button>
             </div>";
         }
         ?>
