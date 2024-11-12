@@ -46,8 +46,8 @@ if (empty($_POST['login']) && empty($_POST['password']) && empty($_POST['email']
                     <input type="text" id="login" name="login" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Электронная почта</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">Номер телефона</label>
+                    <input pattern="^(8|\+7)(\(\d{3}\)|\d{3})-?\d{7}-?\d" type="number" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Пароль</label>

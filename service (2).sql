@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 06 2024 г., 13:24
+-- Время создания: Ноя 11 2024 г., 15:12
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -61,7 +61,9 @@ CREATE TABLE `statements` (
 --
 
 INSERT INTO `statements` (`id`, `user_id`, `name`, `date`, `participants`, `status`, `price`) VALUES
-(3, 9, 'Истории старой Самары: индивидуальная экскурсия', '2024-11-06 14:11:00', 1, 'новое', 3000);
+(3, 9, 'Истории старой Самары: индивидуальная экскурсия', '2024-11-06 14:11:00', 1, 'новое', 3000),
+(4, 9, 'Расширенная экскурсия по Самаре на транспорте туриста', '2024-11-07 19:24:00', 1, 'новое', 5000),
+(5, 5, 'Обзорная пешеходная экскурсия по Самаре', '2024-11-09 15:08:00', 2, 'отклонено', 4000);
 
 -- --------------------------------------------------------
 
@@ -86,7 +88,8 @@ INSERT INTO `users` (`id`, `login`, `password`, `email`, `role_id`) VALUES
 (5, 'alex2', '81dc9bdb52d04dc20036dbd8313ed055', '1234@gmail.com', 1),
 (6, 'alex24', 'b59c67bf196a4758191e42f76670ceba', '32fgnbfb@gmail.com', 1),
 (8, 'copp', '5f4dcc3b5aa765d61d8327deb882cf99', 'adminweb@yandex.ru', 2),
-(9, 'dude', '827ccb0eea8a706c4c34a16891f84e7b', 'user1111_00@yandex.ru', 1);
+(9, 'dude', '827ccb0eea8a706c4c34a16891f84e7b', 'user1111_00@yandex.ru', 1),
+(10, 'biba', '81dc9bdb52d04dc20036dbd8313ed055', 'usseerr_00@yandex.ru', 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -126,13 +129,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT для таблицы `statements`
 --
 ALTER TABLE `statements`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
