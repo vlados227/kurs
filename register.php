@@ -1,17 +1,17 @@
 <?php
 session_start();
 include_once("db.php");
-if (empty($_POST['login']) && empty($_POST['password']) && empty($_POST['email'])) {
+if (empty($_POST['login']) && empty($_POST['password']) && empty($_POST['phone'])) {
     echo "заполните все поля";
 } else {
     $login = trim($_POST['login']);
     $password = trim(md5($_POST['password']));
-    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
 
     $check_availability = mysqli_query($link, "SELECT * FROM `users` WHERE `login` = '$login'");
     $user = mysqli_fetch_assoc($check_availability);
     if (empty($user)){
-        $result = mysqli_query($link, "INSERT INTO `users` SET `login` = '$login', `password` = '$password', `email` = '$email'");
+        $result = mysqli_query($link, "INSERT INTO `users` SET `login` = '$login', `password` = '$password', `phone` = '$phone'");
         $_SESSION['auth'] = true;
     }else{
         echo '<h3 class="error">ошибка: логин уже занят</h3>';
@@ -46,8 +46,8 @@ if (empty($_POST['login']) && empty($_POST['password']) && empty($_POST['email']
                     <input type="text" id="login" name="login" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Номер телефона</label>
-                    <input pattern="^(8|\+7)(\(\d{3}\)|\d{3})-?\d{7}-?\d" type="number" id="email" name="email" required>
+                    <label for="phone">Номер телефона</label>
+                    <input pattern="^(8|\+7)(\(\d{3}\)|\d{3})-?\d{7}-?\d" type="number" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Пароль</label>

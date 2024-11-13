@@ -75,7 +75,7 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `login` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role_id` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -83,7 +83,7 @@ CREATE TABLE `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `password`, `email`, `role_id`) VALUES
+INSERT INTO `users` (`id`, `login`, `password`, `phone`, `role_id`) VALUES
 (4, 'alex', 'e10adc3949ba59abbe56e057f20f883e', 'user1_00@yandex.ru', 1),
 (5, 'alex2', '81dc9bdb52d04dc20036dbd8313ed055', '1234@gmail.com', 1),
 (6, 'alex24', 'b59c67bf196a4758191e42f76670ceba', '32fgnbfb@gmail.com', 1),

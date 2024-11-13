@@ -27,40 +27,66 @@
 <body>
     
     <? include 'elements/header.php' ?>
-    <h2>Заявки всех пользователей</h2>
+    <h2>Заявления всех пользователей</h2>
     <div class="results">
-        <?php 
-        include_once("db.php");
-        $result = mysqli_query($link, "SELECT * FROM `statements` LEFT JOIN `users` ON statements.user_id = users.id ORDER BY date DESC");
-        $get_username = mysqli_query($link, "SELECT `login` FROM `users` WHERE `id` = '$_SESSION[login]'");
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "
-            <form method='post' action='update_status.php'>
-            <div class='statement'>
+        <table style="text-align: center;">
+            <tr>
+                <th>id</th>
+                <th>Имя</th>
+                <th>Дата</th>
+                <th>Кол-во участников</th>
+                <th>Статус</th>
+                <th>Цена</th>
+                <th>Обновить</th>
+            </tr>
+            <?php
+            include_once("db.php");
+            $result = mysqli_query($link, "SELECT * FROM `statements` ORDER BY `date` DESC");
+            //$get_username = mysqli_query($link, "SELECT `login` FROM `users` WHERE `id` = '$_SESSION[login]'");
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "
                 <tr>
-                    <td>$row[name]</td><br>
-                    <td>$row[date]</td><br>
-                    <td>Кол-во участников: $row[participants]</td><br>
-                    <td>Статус: 
-                        <select name='status'>
+                    <td>{$row['id']}</td>
+                    <td>{$row['name']}</td>
+                    <td>{$row['date']}</td>
+                    <td>{$row['participants']}</td>
+                    <td>
+                        <select id='status_{$row['id']}'>
                             <option value='новое' " . ($row['status'] == 'новое' ? 'selected' : '') . ">новое</option>
                             <option value='подтверждено' " . ($row['status'] == 'подтверждено' ? 'selected' : '') . ">подтверждено</option>
                             <option value='отклонено' " . ($row['status'] == 'отклонено' ? 'selected' : '') . ">отклонено</option>
                         </select>
-                        <button type='submit'>Обновить статус</button><br>
                     </td>
-                    <td><strong>Цена: $row[price]</strong
-                   ></td>
+                    <td>{$row['price']}</td>
                     <td>
-                        <input type='hidden' name='statement_id' value='$row[id]'>
+                        <button type='button' onclick='updateStatus({$row['id']})'>Обновить</button>
                     </td>
-                </tr><br>
-            </form>
-            </div>
-            ";
-        }
-        ?>
+                </tr>
+                ";
+            }
+            ?>
+        </table>
     </div>
+
+    <form id="updateForm" method="post" action="update_status.php" >
+        <input type="hidden" name="statement_id" id="statement_id">
+        <input type="hidden" name="status" id="status_value">
+    </form>
+    <script>
+    function updateStatus(statementId) {
+        let selectedStatus = document.getElementById(`status_${statementId}`).value;
+        document.getElementById('statement_id').value = statementId;
+        document.getElementById('status_value').value = selectedStatus;
+        console.log(document.getElementById('statement_id').value, document.getElementById('status_value').value)
+
+        document.getElementById('updateForm').submit();
+        document.getElementById('updateForm').onsubmit = function (event){
+            event.preventDefault();
+        }
+    }
+</script>
+
 <? include 'elements/footer.php' ?>
 </body>
 </html>
