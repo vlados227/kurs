@@ -41,7 +41,7 @@ if (empty($_SESSION["auth"])) {
             
             let visitors = qty.value;
             priceField.value = price * qty.value;
-            priceDisplay.textContent = `Итого: ${price} ₽`;
+            priceDisplay.textContent = `Итого: ${price*qty.value} ₽`;
         }
         
         document.addEventListener("DOMContentLoaded", updatePrice);
@@ -77,6 +77,12 @@ if (empty($_SESSION["auth"])) {
                 <option value="Истории старой Самары: индивидуальная экскурсия">Истории старой Самары: индивидуальная экскурсия</option>
                 <option value="Расширенная экскурсия по Самаре на транспорте туриста">Расширенная экскурсия по Самаре на транспорте туриста</option>
                 <option value="Обзорная пешеходная экскурсия по Самаре">Обзорная пешеходная экскурсия по Самаре</option>
+                <option value="Теплоходная экскурсия по Волге">Теплоходная экскурсия по Волге</option>
+                <option value="Новогодняя экскурсия по Самаре">Новогодняя экскурсия по Самаре</option>
+                <option value="Обзорная экскурсия по историческим местам Самары">Обзорная экскурсия по историческим местам Самары</option>
+                <option value="Индивидуальная экскурсия по музеям Самары">Индивидуальная экскурсия по музеям Самары</option>
+                <option value="Необычная экскурсия по старым дворам Самары">Необычная экскурсия по старым дворам Самары</option>
+                <option value="Автобусная экскурсия по историческим местам">Автобусная экскурсия по историческим местам</option>
             </select>
 
             <label for="participants">Укажите количество участников</label>
